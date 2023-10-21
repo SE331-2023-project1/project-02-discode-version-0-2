@@ -176,12 +176,12 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
 //                .advisorId()
                 .build());
         addUser();
+//        a1.setUser(user1);
+//        user1.setAdvisor(a1);
         a1.setUser(user1);
         user1.setAdvisor(a1);
-        a1.setUser(user2);
-        user2.setAdvisor(a1);
-        a1.setUser(user3);
-        user3.setAdvisor(a1);
+//        a1.setUser(user3);
+//        user3.setAdvisor(a1);
     }
 
     User user1, user2, user3;

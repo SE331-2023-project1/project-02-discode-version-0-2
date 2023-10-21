@@ -34,8 +34,10 @@ public class SecurityConfiguration {
             .authorizeHttpRequests((authorize) -> {
               authorize.requestMatchers("/api/v1/auth/**").permitAll()
                       .requestMatchers(HttpMethod.GET, "/students/**").permitAll()
-                      .requestMatchers(HttpMethod.POST, "/students").hasRole("ADMIN")
-                      .requestMatchers(HttpMethod.POST, "/students").hasRole("ADVISOR")
+                      .requestMatchers(HttpMethod.GET, "/students").permitAll()
+                      .requestMatchers(HttpMethod.POST, "/students").permitAll()
+//                      .requestMatchers(HttpMethod.POST, "/students").hasRole("ADMIN")
+//                      .requestMatchers(HttpMethod.POST, "/students").hasRole("ADVISOR")
                       .requestMatchers(HttpMethod.GET, "/advisors/**").permitAll()
                       .requestMatchers(HttpMethod.POST, "/advisors").hasRole("ADMIN")
                       .requestMatchers(HttpMethod.POST, "/uploadImage").permitAll()
