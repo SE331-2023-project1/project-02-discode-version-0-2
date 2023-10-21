@@ -11,7 +11,9 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import se331.project.rest.entity.Advisor;
+import se331.project.rest.entity.Student;
 import se331.project.rest.repository.AdvisorRepository;
+import se331.project.rest.repository.StudentRepository;
 import se331.project.rest.security.config.JwtService;
 import se331.project.rest.security.token.Token;
 import se331.project.rest.security.token.TokenRepository;
@@ -33,9 +35,11 @@ public class AuthenticationService {
   private final JwtService jwtService;
   private final AuthenticationManager authenticationManager;
   private final AdvisorRepository advisorRepository;
+  private final StudentRepository studentRepository;
 
   public AuthenticationResponse register(RegisterRequest request) {
     Advisor advisor = Advisor.builder().name(request.getUsername()).id(advisorRepository.count()+1).build();
+    Student student = Student.builder().name(request.getUsername()).id(studentRepository.count()+1).build();
     User user = User.builder()
             .firstname(request.getFirstname())
             .lastname(request.getLastname())
@@ -43,11 +47,12 @@ public class AuthenticationService {
             .username(request.getUsername())
             .advisor(advisor)
             .password(passwordEncoder.encode(request.getPassword()))
-            .roles(List.of(Role.ROLE_DISTRIBUTOR))
+            .roles(List.of(Role.ROLE_STUDENT))
             .build();
     advisorRepository.save(advisor);
     var savedUser = repository.save(user);
     advisor.setUser(user);
+    student.setUser();
     advisorRepository.save(advisor);
     var jwtToken = jwtService.generateToken(user);
     var refreshToken = jwtService.generateRefreshToken(user);

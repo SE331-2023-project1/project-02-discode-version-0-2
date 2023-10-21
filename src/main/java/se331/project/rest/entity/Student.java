@@ -21,14 +21,14 @@ public class Student {
     String name;
     String surname;
 
-    @OneToOne
-    User user;
-
     @ManyToOne
     Advisor advisor;
 
     @ElementCollection
     List<String> images;
+
+    @OneToOne
+    User user;
 
 //    public void updateForm(Student newStudent) {
 //        if (newStudent.getName() != null) {
