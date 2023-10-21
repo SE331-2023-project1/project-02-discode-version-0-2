@@ -70,7 +70,6 @@ public class StudentController {
 
 //    @PostMapping("students/{id}")
 //    public ResponseEntity<?> addEvent(@PathVariable("id") Long id, @RequestBody Student updatedStudentDTO) {
-//
 //            Student existingStudent = studentService.getStudentById(id);
 //            if (existingStudent != null) {
 //                existingStudent.updateForm(updatedStudentDTO);
