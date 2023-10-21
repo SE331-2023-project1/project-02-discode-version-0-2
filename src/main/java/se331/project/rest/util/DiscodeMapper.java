@@ -1,11 +1,9 @@
 package se331.project.rest.util;
 
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
-import se331.project.rest.entity.Advisor;
-import se331.project.rest.entity.AdvisorDTO;
-import se331.project.rest.entity.Student;
-import se331.project.rest.entity.StudentDTO;
+import se331.project.rest.entity.*;
 
 import java.util.List;
 
@@ -16,4 +14,10 @@ public interface DiscodeMapper {
     List<StudentDTO> getStudentDTO (List<Student> studentsList);
     AdvisorDTO getAdvisorDTO (Advisor advisor);
     List<AdvisorDTO> getAdvisorDTO (List<Advisor> advisorList);
+
+    @Mapping(target = "roles", source = "user.roles")
+    AdvisorAuthDTO getAdvisorAuthDTO(Advisor organizer);
+    @Mapping(target = "roles", source = "user.roles")
+    StudentAuthDTO getStudenAuthDTO(Student student);
+
 }

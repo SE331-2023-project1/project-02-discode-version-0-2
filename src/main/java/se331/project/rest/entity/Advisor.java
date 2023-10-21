@@ -2,6 +2,7 @@ package se331.project.rest.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import se331.project.rest.security.user.User;
 
 
 import java.util.ArrayList;
@@ -27,4 +28,7 @@ public class Advisor {
 
     @ElementCollection
     List<String> images;
+
+    @OneToOne
+    User user;
 }

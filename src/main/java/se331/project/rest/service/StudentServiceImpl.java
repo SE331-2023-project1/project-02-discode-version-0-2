@@ -28,7 +28,7 @@ public class StudentServiceImpl implements StudentService{
 
     @Override
     public Student getStudentById(Long id) {
-        return studentDao.getStudentById(id).orElse(null);
+        return studentDao.findById(id).orElse(null);
     }
 
     @Override
@@ -36,6 +36,21 @@ public class StudentServiceImpl implements StudentService{
     public Student save(Student student) {
         return studentDao.save(student);
     }
+
+//    @Override
+//    @Transactional
+//    public Student overWrite(Student student) {
+//        if (student.getId() != null) {
+//            Student existingStudent = studentDao.findById(student.getId()).orElse(null);
+//
+//            if (existingStudent != null) {
+//                existingStudent.updateForm(student);
+//                return studentDao.save(existingStudent);
+//            }
+//        }
+//        return studentDao.save(student);
+//    }
+
 
     @Override
     public Page<Student> getStudents(String name, String surname, Pageable pageReq) {

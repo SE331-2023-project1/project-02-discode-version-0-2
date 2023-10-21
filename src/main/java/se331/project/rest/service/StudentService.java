@@ -8,10 +8,11 @@ import java.util.List;
 
 public interface StudentService {
     List<Student> getAllStudent();
-    Page<Student> getStudent(Integer pageSize, Integer page);
+    Page<Student> getStudent(Integer page, Integer perPage);
     Student getStudentById (Long id);
 
     Student save(Student student);
     Page<Student> getStudents (String name, String surname, Pageable pageReq);
     Page<Student> getStudentByStudentId(Long id, Pageable pageReq);
+//    Student overWrite(Student student);
 }

@@ -9,7 +9,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import se331.project.rest.entity.Advisor;
 import se331.project.rest.entity.Student;
+import se331.project.rest.entity.StudentDTO;
 import se331.project.rest.service.StudentService;
 import se331.project.rest.util.DiscodeMapper;
 
@@ -65,4 +67,17 @@ public class StudentController {
         Student output = studentService.save(student);
         return ResponseEntity.ok(DiscodeMapper.INSTANCE.getStudentDTO(output));
     }
+
+//    @PostMapping("students/{id}")
+//    public ResponseEntity<?> addEvent(@PathVariable("id") Long id, @RequestBody Student updatedStudentDTO) {
+//
+//            Student existingStudent = studentService.getStudentById(id);
+//            if (existingStudent != null) {
+//                existingStudent.updateForm(updatedStudentDTO);
+//                return ResponseEntity.ok(DiscodeMapper.INSTANCE.getStudentDTO(existingStudent));
+//            } else {
+//                throw new ResponseStatusException(HttpStatus.NOT_FOUND, "The given id is not found");
+//            }
+//        }
+
 }

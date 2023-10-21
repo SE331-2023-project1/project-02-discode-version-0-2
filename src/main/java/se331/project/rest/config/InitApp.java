@@ -4,14 +4,22 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import se331.project.rest.entity.Advisor;
 import se331.project.rest.entity.Student;
 import se331.project.rest.repository.AdvisorRepository;
 import se331.project.rest.repository.StudentRepository;
+import se331.project.rest.security.user.Role;
+import se331.project.rest.security.user.User;
+import se331.project.rest.security.user.UserRepository;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Component
@@ -21,6 +29,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
     @Autowired
     final StudentRepository studentRepository;
     final AdvisorRepository advisorRepository;
+    final UserRepository userRepository;
 
     @Override
     @Transactional
@@ -166,10 +175,55 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .surname("YAMKAMOL")
 //                .advisorId()
                 .build());
+        addUser();
+        a1.setUser(user1);
+        user1.setAdvisor(a1);
+        a1.setUser(user2);
+        user2.setAdvisor(a1);
+        a1.setUser(user3);
+        user3.setAdvisor(a1);
+    }
+
+    User user1, user2, user3;
+    private void addUser() {
+        PasswordEncoder encoder = new BCryptPasswordEncoder();
+        user1 = User.builder()
+                .username("admin")
+                .password(encoder.encode("admin"))
+                .firstname("admin")
+                .lastname("admin")
+                .email("admin@admin.com")
+                .enabled(true)
+                .lastPasswordResetDate(Date.from(LocalDate.of(2021, 01, 01).atStartOfDay(ZoneId.systemDefault()).toInstant()))
+                .build();
+
+        user2 = User.builder()
+                .username("advisor")
+                .password(encoder.encode("advisor"))
+                .firstname("advisorUser")
+                .lastname("advisorUser")
+                .email("advisor@user.com")
+                .enabled(true)
+                .lastPasswordResetDate(Date.from(LocalDate.of(2021, 01, 01).atStartOfDay(ZoneId.systemDefault()).toInstant()))
+                .build();
+
+        user3 = User.builder()
+                .username("student")
+                .password(encoder.encode("student"))
+                .firstname("studentUSer")
+                .lastname("studentUSer")
+                .email("student@cmu.ca.th")
+                .enabled(true)
+                .lastPasswordResetDate(Date.from(LocalDate.of(2021, 01, 01).atStartOfDay(ZoneId.systemDefault()).toInstant()))
+                .build();
 
 
-
-
+        user1.getRoles().add(Role.ROLE_ADMIN);
+        user2.getRoles().add(Role.ROLE_ADVISOR);
+        user3.getRoles().add(Role.ROLE_STUDENT);
+        userRepository.save(user1);
+        userRepository.save(user2);
+        userRepository.save(user3);
     }
 
 

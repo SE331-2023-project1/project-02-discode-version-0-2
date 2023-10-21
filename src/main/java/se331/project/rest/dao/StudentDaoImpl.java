@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
+import se331.project.rest.entity.Advisor;
 import se331.project.rest.entity.Student;
 import se331.project.rest.repository.StudentRepository;
 
@@ -38,5 +39,10 @@ public class StudentDaoImpl implements StudentDao{
     @Override
     public Page<Student> getStudentByStudentId(Long id, Pageable pageReq) {
         return studentRepository.findByStudentIdContainingIgnoreCase(id, pageReq);
+    }
+
+    @Override
+    public Optional<Student> findById(Long id) {
+        return studentRepository.findById(id);
     }
 }
