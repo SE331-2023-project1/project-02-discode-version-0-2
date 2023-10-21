@@ -52,7 +52,7 @@ public class AuthenticationService {
     advisorRepository.save(advisor);
     var savedUser = repository.save(user);
     advisor.setUser(user);
-    student.setUser();
+//    student.setUser();
     advisorRepository.save(advisor);
     var jwtToken = jwtService.generateToken(user);
     var refreshToken = jwtService.generateRefreshToken(user);
