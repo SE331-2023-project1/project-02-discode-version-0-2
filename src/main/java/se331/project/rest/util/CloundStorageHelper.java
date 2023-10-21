@@ -26,7 +26,7 @@ public class CloundStorageHelper {
         InputStream serviceAccount = null;
 
         try {
-            serviceAccount = new ClassPathResource("imageupload-2e148-8813b4653572.json").getInputStream();
+            serviceAccount = new ClassPathResource("imageupload-2e148-0515256fec36.json").getInputStream();
             storage = StorageOptions.newBuilder()
                     .setCredentials(GoogleCredentials.fromStream(serviceAccount))
                     .setProjectId("imageupload-2e148")
