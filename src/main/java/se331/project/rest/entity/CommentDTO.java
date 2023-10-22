@@ -14,8 +14,8 @@ import java.util.List;
 @AllArgsConstructor
 public class CommentDTO {
     Long id;
-    String Text;
-    String author;
-    List<CommentHistoryDTO> commentsHistory = new ArrayList<>();
-    Boolean sentByAdvisor;
+    String text;
+    Long studentId;
+    Long advisorId;
+//    List<CommentHistoryDTO> commentsHistory = new ArrayList<>();
 }

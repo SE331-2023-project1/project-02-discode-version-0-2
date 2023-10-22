@@ -18,4 +18,5 @@ public class StudentDTO {
     String[] courseList;
     StudentAdvisorDTO advisor;
     List<String> images;
+    List<CommentDTO> comments;
 }

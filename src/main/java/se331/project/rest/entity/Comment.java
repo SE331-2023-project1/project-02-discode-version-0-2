@@ -16,7 +16,15 @@ public class Comment {
 
     @ManyToOne
     HistoryComment commentHistory;
+
     String text;
     String author;
-    Boolean sentByAdvisor;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "student_id")
+    Student student;
+
+    @ManyToOne
+    @JoinColumn(name = "advisor_id")
+    Advisor advisor;
 }

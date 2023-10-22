@@ -30,6 +30,9 @@ public class Student {
     @OneToOne
     User user;
 
+    @OneToMany(mappedBy = "student")
+    List<Comment> comments;
+
 //    public void updateForm(Student newStudent) {
 //        if (newStudent.getName() != null) {
 //            this.name = newStudent.getName();

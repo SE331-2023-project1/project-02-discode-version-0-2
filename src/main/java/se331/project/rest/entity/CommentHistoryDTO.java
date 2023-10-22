@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CommentHistoryDTO {
     Long id;
+    String Text;
     Long studentId;
     Long advisorId;
 }
