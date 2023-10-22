@@ -19,9 +19,10 @@ public interface DiscodeMapper {
     HistoryCommentDTO getHistoryCommentDTO(HistoryComment historyComment);
     List<HistoryCommentDTO> getHistoryCommentDTO(List<HistoryComment> historyComments);
 
+
     @Mapping(target = "roles", source = "user.roles")
-    AdvisorAuthDTO getAdvisorAuthDTO(Advisor organizer);
+    AdvisorAuthDTO getAdvisorAuthDTO(Advisor advisor);
     @Mapping(target = "roles", source = "user.roles")
-    StudentAuthDTO getStudenAuthDTO(Student student);
+    StudentAuthDTO getStudentAuthDTO(Student student);
 
 }

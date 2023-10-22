@@ -79,4 +79,33 @@ public class StudentController {
 //            }
 //        }
 
+    @PutMapping("/students/{id}")
+    public ResponseEntity<?> updateStudent(@PathVariable("id") Long id, @RequestBody Student updateStudent) {
+        Student existingStudent = studentService.getStudentById(id);
+        if (existingStudent != null) {
+            if (updateStudent.getName() != null) {
+                existingStudent.setName(updateStudent.getName());
+            }
+            if (updateStudent.getStudentId() != null) {
+                existingStudent.setStudentId(updateStudent.getStudentId());
+            }
+            if (updateStudent.getSurname() != null) {
+                existingStudent.setSurname(updateStudent.getSurname());
+            }
+            if (updateStudent.getImages() != null) {
+                existingStudent.setImages(updateStudent.getImages());
+            }
+            if(updateStudent.getUser().getUsername() != null ) {
+                existingStudent.getUser().setUsername(updateStudent.getUser().getUsername());
+            }
+            if(updateStudent.getUser().getPassword() != null) {
+                existingStudent.getUser().setPassword(updateStudent.getUser().getPassword());
+            }
+            Student output = studentService.save(existingStudent);
+            return ResponseEntity.ok(DiscodeMapper.INSTANCE.getStudentDTO(output));
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "The given id is not found");
+        }
+    }
+
 }

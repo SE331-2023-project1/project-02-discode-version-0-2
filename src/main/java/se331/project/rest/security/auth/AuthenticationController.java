@@ -26,7 +26,7 @@ public class AuthenticationController {
   }
 
   @PostMapping("/registerAdvisor")
-  public ResponseEntity<AuthenticationResponseAdvisor> registerAdvisor(
+  public ResponseEntity<AuthenticationResponse> registerAdvisor(
           @RequestBody RegisterRequest request
   ) {
     return ResponseEntity.ok(service.registerAdvisor(request));

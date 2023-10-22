@@ -52,6 +52,8 @@ public class AuthenticationService {
     studentRepository.save(student);
     var savedUser = repository.save(user);
     student.setUser(user);
+    student.setName(user.getFirstname());
+    student.setSurname(user.getLastname());
     studentRepository.save(student);
     var jwtToken = jwtService.generateToken(user);
     var refreshToken = jwtService.generateRefreshToken(user);
@@ -59,13 +61,14 @@ public class AuthenticationService {
     return AuthenticationResponse.builder()
         .accessToken(jwtToken)
         .refreshToken(refreshToken)
-        .student(DiscodeMapper.INSTANCE.getStudenAuthDTO(user.getStudent()))
+        .student(DiscodeMapper.INSTANCE.getStudentAuthDTO(user.getStudent()))
         .build();
   }
 
-  public AuthenticationResponseAdvisor registerAdvisor(RegisterRequest request) {
+  public AuthenticationResponse registerAdvisor(RegisterRequest request) {
     Advisor advisor = Advisor.builder().name(request.getUsername()).id(advisorRepository.count()+1).build();
     User user = User.builder()
+            .studentId(request.getStudentId())
             .firstname(request.getFirstname())
             .lastname(request.getLastname())
             .email(request.getEmail())
@@ -81,7 +84,7 @@ public class AuthenticationService {
     var jwtToken = jwtService.generateToken(user);
     var refreshToken = jwtService.generateRefreshToken(user);
     saveUserToken(savedUser, jwtToken);
-    return AuthenticationResponseAdvisor.builder()
+    return AuthenticationResponse.builder()
             .accessToken(jwtToken)
             .refreshToken(refreshToken)
             .advisor(DiscodeMapper.INSTANCE.getAdvisorAuthDTO(user.getAdvisor()))
@@ -102,19 +105,25 @@ public class AuthenticationService {
 //    revokeAllUserTokens(user);
     saveUserToken(user, jwtToken);
 
-    if (user.getRoles().equals("ROLE_STUDENT")) {
-      return AuthenticationResponse.builder()
-              .accessToken(jwtToken)
-              .refreshToken(refreshToken)
-              .student(DiscodeMapper.INSTANCE.getStudenAuthDTO(user.getStudent()))
-              .build();
-    } else {
+//    if (user.getRoles().equals("ROLE_STUDENT")) {
       return AuthenticationResponse.builder()
               .accessToken(jwtToken)
               .refreshToken(refreshToken)
               .advisor(DiscodeMapper.INSTANCE.getAdvisorAuthDTO(user.getAdvisor()))
+              .student(DiscodeMapper.INSTANCE.getStudentAuthDTO(user.getStudent()))
               .build();
-    }
+//    } else if(user.getRoles().equals("ROLE_ADVISOR")){
+//      return AuthenticationResponse.builder()
+//              .accessToken(jwtToken)
+//              .refreshToken(refreshToken)
+//              .advisor(DiscodeMapper.INSTANCE.getAdvisorAuthDTO(user.getAdvisor()))
+//              .build();
+//    } else  {
+//      return AuthenticationResponse.builder()
+//              .accessToken(jwtToken)
+//              .refreshToken(refreshToken)
+//              .build();
+//    }
   }
 
 //  public AuthenticationResponse authenticateStudent (AuthenticationRequest request) {
@@ -180,7 +189,7 @@ public class AuthenticationService {
         String accessToken = jwtService.generateToken(user);
         revokeAllUserTokens(user);
         saveUserToken(user, accessToken);
-        AuthenticationResponseAdvisor authResponse = AuthenticationResponseAdvisor.builder()
+        AuthenticationResponse authResponse = AuthenticationResponse.builder()
                 .accessToken(accessToken)
                 .refreshToken(refreshToken)
                 .build();

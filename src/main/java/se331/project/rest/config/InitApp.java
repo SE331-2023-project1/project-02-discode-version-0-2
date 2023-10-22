@@ -222,6 +222,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         s17.setAdvisor(a3);
         a3.getStudentList().add(s17);
 
+
         tempStudent = studentRepository.save(Student.builder()
                 .id(13L)
                 .studentId(642115019L)
@@ -268,12 +269,16 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
 
 
         addUser();
-//        a1.setUser(user1);
-//        user1.setAdvisor(a1);
+
         a1.setUser(user1);
         user1.setAdvisor(a1);
+
         s17.setUser(user3);
         user3.setStudent(s17);
+        user3.setStudentId(642115017L);
+        user3.setFirstname(s17.getName());
+        user3.setLastname(s17.getSurname());
+
     }
 
     User user1, user2, user3;
@@ -300,8 +305,8 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .build();
 
         user3 = User.builder()
-                .username("student")
-                .password(encoder.encode("student"))
+                .username("user")
+                .password(encoder.encode("user"))
                 .firstname("studentUSer")
                 .lastname("studentUSer")
                 .email("student@cmu.ca.th")
