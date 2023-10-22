@@ -19,7 +19,7 @@ public class AdvisorController {
     final AdvisorService advisorService;
 
     @GetMapping("advisors")
-    public ResponseEntity<?> getEventLists (@RequestParam(value = "_limit",
+    public ResponseEntity<?> getAdvisorList (@RequestParam(value = "_limit",
             required = false) Integer perPage
             , @RequestParam(value = "_page", required = false) Integer page
             , @RequestParam(value = "title", required = false) String title

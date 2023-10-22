@@ -16,5 +16,5 @@ public class HistoryCommentDTO {
     Long id;
     Long studentId;
     Long advisorId;
-    List<HistoryCommentTextDTO> historyComment = new ArrayList<>();
+    List<HistoryCommentTextDTO> commentHistory = new ArrayList<>();
 }

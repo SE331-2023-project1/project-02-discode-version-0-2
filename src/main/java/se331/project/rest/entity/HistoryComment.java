@@ -22,6 +22,6 @@ public class HistoryComment {
 
     @OneToMany(mappedBy = "commentHistory")
     @Builder.Default
-    List<Comment> history = new ArrayList<>();
+    List<Comment> commentHistory = new ArrayList<>();
 
 }

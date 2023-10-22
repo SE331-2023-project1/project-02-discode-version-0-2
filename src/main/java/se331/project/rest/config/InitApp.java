@@ -9,9 +9,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import se331.project.rest.entity.Advisor;
+import se331.project.rest.entity.Comment;
 import se331.project.rest.entity.HistoryComment;
 import se331.project.rest.entity.Student;
 import se331.project.rest.repository.AdvisorRepository;
+import se331.project.rest.repository.CommentHistoryRepository;
+import se331.project.rest.repository.CommentRepository;
 import se331.project.rest.repository.StudentRepository;
 import se331.project.rest.security.user.Role;
 import se331.project.rest.security.user.User;
@@ -30,6 +33,8 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
     final StudentRepository studentRepository;
     final AdvisorRepository advisorRepository;
     final UserRepository userRepository;
+    final CommentHistoryRepository commentHistoryRepository;
+    final CommentRepository commentRepository;
 
     @Override
     @Transactional
@@ -44,7 +49,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .build());
 
         a2 = advisorRepository.save(Advisor.builder()
-                .id(1L)
+                .id(2L)
                 .name("Eve")
                 .surname("Apic")
                 .email("Eve_Apic@gmail.com")
@@ -52,7 +57,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .build());
 
         a3 = advisorRepository.save(Advisor.builder()
-                .id(1L)
+                .id(3L)
                 .name("Ball")
                 .surname("Parin")
                 .email("Ball_Parin@gmail.com")
@@ -60,6 +65,8 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .build());
 
         HistoryComment hist1, hist2 ,his3 ;
+        Comment c1, c2, c3;
+
 
         Student tempStudent;
         tempStudent = studentRepository.save(Student.builder()
@@ -81,6 +88,24 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .build());
         tempStudent.setAdvisor(a1);
         a1.getStudentList().add(tempStudent);
+        hist1 = commentHistoryRepository.save(HistoryComment.builder()
+                .studentId(tempStudent.getId())
+                .advisorId(tempStudent.getAdvisor().getId())
+                .build());
+        c1 = commentRepository.save(Comment.builder()
+                .text("Hello World")
+                .author(tempStudent.getAdvisor().getName())
+                .sentByAdvisor(true)
+                .build());
+        c1.setCommentHistory(hist1);
+        hist1.getCommentHistory().add(c1);
+        c2 = commentRepository.save(Comment.builder()
+                .text("Hello Prof")
+                .author(tempStudent.getName())
+                .sentByAdvisor(false)
+                .build());
+        c2.setCommentHistory(hist1);
+        hist1.getCommentHistory().add(c2);
 
         tempStudent = studentRepository.save(Student.builder()
                 .id(3L)
@@ -172,15 +197,15 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         tempStudent.setAdvisor(a3);
         a3.getStudentList().add(tempStudent);
 
-        tempStudent = studentRepository.save(Student.builder()
+        Student s17 = studentRepository.save(Student.builder()
                 .id(12L)
                 .studentId(642115017L)
                 .name("DUSIT")
                 .surname("CHUNVISET")
                 .advisor(a3)
                 .build());
-        tempStudent.setAdvisor(a3);
-        a3.getStudentList().add(tempStudent);
+        s17.setAdvisor(a3);
+        a3.getStudentList().add(s17);
 
         tempStudent = studentRepository.save(Student.builder()
                 .id(13L)
@@ -228,8 +253,8 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
 //        user1.setAdvisor(a1);
         a1.setUser(user1);
         user1.setAdvisor(a1);
-//        a1.setUser(user3);
-//        user3.setAdvisor(a1);
+        s17.setUser(user3);
+        user3.setStudent(s17);
     }
 
     User user1, user2, user3;
