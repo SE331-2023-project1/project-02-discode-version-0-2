@@ -28,4 +28,10 @@ public class AdvisorDaoImpl implements  AdvisorDao{
         return advisorRepository.save(advisor);
     }
 
+    @Override
+    public Page<Advisor> getAdvisors(String name, String surname, Pageable pageReq) {
+        return advisorRepository.findByNameContainingIgnoreCaseOrSurnameContainingIgnoreCase
+                (name, surname, pageReq);
+    }
+
 }

@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CommentStudentDTO {
+public class CommentHistoryDTO {
     Long id;
-    String text;
-    String author;
+    Long studentId;
+    Long advisorId;
 }

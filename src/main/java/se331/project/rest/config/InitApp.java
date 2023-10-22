@@ -9,6 +9,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import se331.project.rest.entity.Advisor;
+import se331.project.rest.entity.HistoryComment;
 import se331.project.rest.entity.Student;
 import se331.project.rest.repository.AdvisorRepository;
 import se331.project.rest.repository.StudentRepository;
@@ -20,7 +21,6 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 @Component
 @RequiredArgsConstructor
@@ -43,6 +43,23 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .studentList(new ArrayList<>())
                 .build());
 
+        a2 = advisorRepository.save(Advisor.builder()
+                .id(1L)
+                .name("Eve")
+                .surname("Apic")
+                .email("Eve_Apic@gmail.com")
+                .studentList(new ArrayList<>())
+                .build());
+
+        a3 = advisorRepository.save(Advisor.builder()
+                .id(1L)
+                .name("Ball")
+                .surname("Parin")
+                .email("Ball_Parin@gmail.com")
+                .studentList(new ArrayList<>())
+                .build());
+
+        HistoryComment hist1, hist2 ,his3 ;
 
         Student tempStudent;
         tempStudent = studentRepository.save(Student.builder()
@@ -70,111 +87,142 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .studentId(642115003L)
                 .name("KAN")
                 .surname("KATPARK")
-//                .advisorId()
+                .advisor(a1)
                 .build());
+        tempStudent.setAdvisor(a1);
+        a1.getStudentList().add(tempStudent);
 
         tempStudent = studentRepository.save(Student.builder()
                 .id(4L)
                 .studentId(642115004L)
                 .name("KITDANAI")
                 .surname("PALEE")
-//                .advisorId()
+                .advisor(a1)
                 .build());
+        tempStudent.setAdvisor(a1);
+        a1.getStudentList().add(tempStudent);
 
         tempStudent = studentRepository.save(Student.builder()
                 .id(5L)
                 .studentId(642115005L)
                 .name("KITTIPAT")
                 .surname("TACHAMANOKUL")
-//                .advisorId()
+                .advisor(a2)
                 .build());
+        tempStudent.setAdvisor(a2);
+        a2.getStudentList().add(tempStudent);
         tempStudent = studentRepository.save(Student.builder()
                 .id(6L)
                 .studentId(642115006L)
                 .name("JAKKAPHAT")
                 .surname("PLOYLAKE")
-//                .advisorId()
+                .advisor(a2)
                 .build());
+        tempStudent.setAdvisor(a2);
+        a2.getStudentList().add(tempStudent);
 
         tempStudent = studentRepository.save(Student.builder()
                 .id(7L)
                 .studentId(642115008L)
                 .name("JIRAPAT")
                 .surname("NAMWONG")
-//                .advisorId()
+                .advisor(a2)
                 .build());
+        tempStudent.setAdvisor(a2);
+        a2.getStudentList().add(tempStudent);
 
         tempStudent = studentRepository.save(Student.builder()
                 .id(8L)
                 .studentId(642115009L)
                 .name("JULALUCK")
                 .surname("KYETAATPARK")
-//                .advisorId()
+                .advisor(a2)
                 .build());
+        tempStudent.setAdvisor(a2);
+        a2.getStudentList().add(tempStudent);
 
         tempStudent = studentRepository.save(Student.builder()
                 .id(9L)
                 .studentId(642115011L)
                 .name("YANWARUT")
                 .surname("SUKSAWAT")
-//                .advisorId()
+                .advisor(a3)
                 .build());
+        tempStudent.setAdvisor(a3);
+        a3.getStudentList().add(tempStudent);
+
 
         tempStudent = studentRepository.save(Student.builder()
                 .id(10L)
                 .studentId(642115015L)
                 .name("YADA")
                 .surname("LAKHONJUN")
-//                .advisorId()
+                .advisor(a3)
                 .build());
+        tempStudent.setAdvisor(a3);
+        a3.getStudentList().add(tempStudent);
 
         tempStudent = studentRepository.save(Student.builder()
                 .id(11L)
                 .studentId(642115016L)
                 .name("DANAIKRIT")
                 .surname("JAIWONG")
-//                .advisorId()
+                .advisor(a3)
                 .build());
+        tempStudent.setAdvisor(a3);
+        a3.getStudentList().add(tempStudent);
 
         tempStudent = studentRepository.save(Student.builder()
                 .id(12L)
                 .studentId(642115017L)
                 .name("DUSIT")
                 .surname("CHUNVISET")
-//                .advisorId()
+                .advisor(a3)
                 .build());
+        tempStudent.setAdvisor(a3);
+        a3.getStudentList().add(tempStudent);
 
         tempStudent = studentRepository.save(Student.builder()
                 .id(13L)
                 .studentId(642115019L)
                 .name("TANINWAT")
                 .surname("PHUTTICHAIWARANGKUL")
-//                .advisorId()
+                .advisor(a1)
                 .build());
+        tempStudent.setAdvisor(a3);
+        a3.getStudentList().add(tempStudent);
 
         tempStudent = studentRepository.save(Student.builder()
                 .id(14L)
                 .studentId(642115020L)
                 .name("THIWAKON")
                 .surname("SAKUNCHAO")
-//                .advisorId()
+                .advisor(a2)
                 .build());
+        tempStudent.setAdvisor(a3);
+        a3.getStudentList().add(tempStudent);
 
         tempStudent = studentRepository.save(Student.builder()
                 .id(15L)
                 .studentId(642115021L)
                 .name("TANAKORN")
                 .surname("WALEECHAROENPONG")
-//                .advisorId()
+                .advisor(a3)
                 .build());
+        tempStudent.setAdvisor(a3);
+        a3.getStudentList().add(tempStudent);
 
         tempStudent = studentRepository.save(Student.builder()
                 .id(16L)
                 .studentId(642115022L)
                 .name("TANAPONG")
                 .surname("YAMKAMOL")
-//                .advisorId()
+                .advisor(a1)
                 .build());
+        tempStudent.setAdvisor(a3);
+        a3.getStudentList().add(tempStudent);
+
+
         addUser();
 //        a1.setUser(user1);
 //        user1.setAdvisor(a1);

@@ -7,6 +7,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import se331.project.rest.dao.AdvisorDao;
 import se331.project.rest.entity.Advisor;
+import se331.project.rest.entity.Student;
 
 import java.util.List;
 
@@ -31,7 +32,14 @@ public class AdvisorServiceImpl implements AdvisorService {
     }
 
     @Override
+    public Page<Advisor> getAdvisors(String name, String surname, Pageable pageReq) {
+        return advisorDao.getAdvisors(name, surname, pageReq);
+    }
+
+    @Override
     public Advisor save(Advisor advisor) {
         return advisorDao.save(advisor);
     }
+
+
 }

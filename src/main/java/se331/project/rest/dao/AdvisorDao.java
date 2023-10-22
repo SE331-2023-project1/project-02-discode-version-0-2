@@ -10,4 +10,6 @@ public interface AdvisorDao {
     Page<Advisor> getAdvisor(Pageable pageRequest);
     Optional<Advisor> findById(Long id);
     Advisor save(Advisor Advisor);
+
+    Page<Advisor> getAdvisors (String name, String surname, Pageable pageReq);
 }

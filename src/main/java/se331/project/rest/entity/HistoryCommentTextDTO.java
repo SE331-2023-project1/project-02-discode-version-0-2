@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CommentAdvisorDTO {
+public class HistoryCommentTextDTO {
     Long id;
     String text;
     String author;

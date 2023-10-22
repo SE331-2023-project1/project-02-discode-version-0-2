@@ -12,10 +12,9 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CommentDTO {
+public class HistoryCommentDTO {
     Long id;
-    String Text;
-    String author;
-    List<CommentHistoryDTO> commentsHistory = new ArrayList<>();
-    Boolean sentByAdvisor;
+    Long studentId;
+    Long advisorId;
+    List<HistoryCommentTextDTO> historyComment = new ArrayList<>();
 }
