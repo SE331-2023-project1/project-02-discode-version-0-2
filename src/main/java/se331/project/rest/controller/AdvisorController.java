@@ -62,4 +62,20 @@ public class AdvisorController {
         Advisor output = advisorService.save(advisor);
         return ResponseEntity.ok(DiscodeMapper.INSTANCE.getAdvisorDTO(output));
     }
+
+    @PutMapping("/advisors/{id}")
+    public ResponseEntity<?> updateAdvisor(@PathVariable("id") Long id, @RequestBody Advisor updateAdvisor) {
+        Advisor existingAdvisor = advisorService.getAdvisorById(id);
+        if (existingAdvisor != null) {
+                existingAdvisor.setName(updateAdvisor.getName());
+                existingAdvisor.setSurname(updateAdvisor.getSurname());
+                existingAdvisor.setEmail(updateAdvisor.getEmail());
+                existingAdvisor.setImages(updateAdvisor.getImages());
+
+            Advisor output = advisorService.save(existingAdvisor);
+            return ResponseEntity.ok(DiscodeMapper.INSTANCE.getAdvisorDTO(output));
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "The given id is not found");
+        }
+    }
 }

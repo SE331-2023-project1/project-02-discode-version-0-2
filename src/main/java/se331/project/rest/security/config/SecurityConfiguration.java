@@ -39,6 +39,8 @@ public class SecurityConfiguration {
                       .requestMatchers(HttpMethod.POST, "/students").permitAll()
                       .requestMatchers(HttpMethod.GET, "/comments").permitAll()
                       .requestMatchers(HttpMethod.GET, "/historyComments").permitAll()
+                      .requestMatchers(HttpMethod.PUT, "/students/**").permitAll()
+                      .requestMatchers(HttpMethod.PUT, "/advisors/**").permitAll()
 //                      .requestMatchers(HttpMethod.POST, "/students").hasRole("ADMIN")
 //                      .requestMatchers(HttpMethod.POST, "/students").hasRole("ADVISOR")
                       .requestMatchers(HttpMethod.GET, "/advisors/**").permitAll()
