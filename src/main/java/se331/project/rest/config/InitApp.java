@@ -214,8 +214,8 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .surname("PHUTTICHAIWARANGKUL")
                 .advisor(a1)
                 .build());
-        tempStudent.setAdvisor(a3);
-        a3.getStudentList().add(tempStudent);
+        tempStudent.setAdvisor(a1);
+        a1.getStudentList().add(tempStudent);
 
         tempStudent = studentRepository.save(Student.builder()
                 .id(14L)
@@ -224,8 +224,8 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .surname("SAKUNCHAO")
                 .advisor(a2)
                 .build());
-        tempStudent.setAdvisor(a3);
-        a3.getStudentList().add(tempStudent);
+        tempStudent.setAdvisor(a2);
+        a2.getStudentList().add(tempStudent);
 
         tempStudent = studentRepository.save(Student.builder()
                 .id(15L)

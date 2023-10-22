@@ -1,5 +1,6 @@
 package se331.project.rest.security.config;
 
+import com.google.api.Http;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -36,6 +37,8 @@ public class SecurityConfiguration {
                       .requestMatchers(HttpMethod.GET, "/students/**").permitAll()
                       .requestMatchers(HttpMethod.GET, "/students").permitAll()
                       .requestMatchers(HttpMethod.POST, "/students").permitAll()
+                      .requestMatchers(HttpMethod.GET, "/comments").permitAll()
+                      .requestMatchers(HttpMethod.GET, "/historyComments").permitAll()
 //                      .requestMatchers(HttpMethod.POST, "/students").hasRole("ADMIN")
 //                      .requestMatchers(HttpMethod.POST, "/students").hasRole("ADVISOR")
                       .requestMatchers(HttpMethod.GET, "/advisors/**").permitAll()
