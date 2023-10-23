@@ -43,8 +43,7 @@ public class AdvisorController {
         System.out.println(pageOutput);
         System.out.println(title);
         return new
-                ResponseEntity<>(DiscodeMapper.INSTANCE.getAdvisorDTO (
-                pageOutput.getContent()), responseHeader, HttpStatus.OK);
+                ResponseEntity<>(DiscodeMapper.INSTANCE.getAdvisorDTO (pageOutput.getContent()), responseHeader, HttpStatus.OK);
     }
 
     @GetMapping("advisors/{id}")

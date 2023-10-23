@@ -33,6 +33,7 @@ public class CommentController {
         }else{
             pageOutput = commentService.getComments(title,PageRequest.of(page-1,perPage));
         }
+
         HttpHeaders responseHeader = new HttpHeaders();
         responseHeader.set("x-total-count", String.valueOf(pageOutput.getTotalElements()));
         return new ResponseEntity<>(DiscodeMapper.INSTANCE.getCommentDTO(pageOutput.getContent()),responseHeader,HttpStatus.OK);
