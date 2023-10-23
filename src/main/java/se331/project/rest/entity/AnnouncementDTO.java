@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -12,5 +14,7 @@ import lombok.NoArgsConstructor;
 public class AnnouncementDTO {
     Long id;
     String title;
-    String description;
+    String message;
+    StudentAdvisorDTO advisor;
+    List<String> files;
 }

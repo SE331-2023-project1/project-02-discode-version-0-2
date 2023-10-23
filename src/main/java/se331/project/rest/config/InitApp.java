@@ -8,14 +8,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
-import se331.project.rest.entity.Advisor;
-import se331.project.rest.entity.Comment;
-import se331.project.rest.entity.HistoryComment;
-import se331.project.rest.entity.Student;
-import se331.project.rest.repository.AdvisorRepository;
-import se331.project.rest.repository.CommentRepository;
-import se331.project.rest.repository.HistoryCommentRepository;
-import se331.project.rest.repository.StudentRepository;
+import se331.project.rest.entity.*;
+import se331.project.rest.repository.*;
 import se331.project.rest.security.user.Role;
 import se331.project.rest.security.user.User;
 import se331.project.rest.security.user.UserRepository;
@@ -36,6 +30,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
     final UserRepository userRepository;
     final HistoryCommentRepository historyCommentRepository;
     final CommentRepository commentRepository;
+    final AnnouncementRepository announcementRepository;
 
     @Override
     @Transactional
@@ -71,6 +66,12 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
 
         HistoryComment hist1, hist2 ,his3 ;
         Comment c1, c2, c3;
+
+        Announcement aans1 = announcementRepository.save(Announcement.builder()
+                .title("Hello")
+                .description("sgdfgdfgdfgdfgdfgd")
+                .advisor(a1)
+                .build());
 
 
         Student tempStudent;

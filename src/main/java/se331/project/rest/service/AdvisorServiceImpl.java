@@ -7,7 +7,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import se331.project.rest.dao.AdvisorDao;
 import se331.project.rest.entity.Advisor;
-import se331.project.rest.entity.Student;
+import se331.project.rest.entity.Announcement;
 
 import java.util.List;
 
@@ -40,6 +40,8 @@ public class AdvisorServiceImpl implements AdvisorService {
     public Advisor save(Advisor advisor) {
         return advisorDao.save(advisor);
     }
+
+
 
 
 }

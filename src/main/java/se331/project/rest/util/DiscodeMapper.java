@@ -18,6 +18,8 @@ public interface DiscodeMapper {
     List<CommentDTO> getCommentDTO (List<Comment> commentList);
     HistoryCommentDTO getHistoryCommentDTO(HistoryComment historyComment);
     List<HistoryCommentDTO> getHistoryCommentDTO(List<HistoryComment> historyComments);
+    AnnouncementDTO getAnnouncementDTO(Announcement historyComment);
+    List<AnnouncementDTO> getAnnouncementDTO(List<Announcement> historyComments);
 
 
     @Mapping(target = "roles", source = "user.roles")
