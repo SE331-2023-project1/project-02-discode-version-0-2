@@ -10,8 +10,5 @@ import se331.project.rest.entity.Announcement;
 @RequiredArgsConstructor
 public class AnnouncementServiceImpl implements AnnouncementService{
 
-    @Override
-    public Announcement createAnnouncement(Long teacherId, Announcement announcement, MultipartFile files) {
-        return null;
-    }
+
 }

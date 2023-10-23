@@ -12,5 +12,5 @@ import lombok.NoArgsConstructor;
 public class HistoryCommentTextDTO {
     Long id;
     String text;
-    String author;
+    Boolean sentByAdvisor;
 }

@@ -46,6 +46,7 @@ public class SecurityConfiguration {
                       .requestMatchers(HttpMethod.PUT, "/comments/**").permitAll()
 //                      .requestMatchers(HttpMethod.POST, "/students").hasRole("ADMIN")
 //                      .requestMatchers(HttpMethod.POST, "/students").hasRole("ADVISOR")
+                      .requestMatchers(HttpMethod.POST, "/comments").permitAll()
                       .requestMatchers(HttpMethod.POST, "/students").permitAll()
                       .requestMatchers(HttpMethod.POST, "/advisors").hasRole("ADMIN")
                       .requestMatchers(HttpMethod.POST, "/uploadImage").permitAll()

@@ -95,25 +95,24 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .build());
         tempStudent.setAdvisor(a1);
         a1.getStudentList().add(tempStudent);
+
         hist1 = commentHistoryRepository.save(HistoryComment.builder()
                 .studentId(tempStudent.getId())
-                .advisorId(tempStudent.getAdvisor().getId())
+                .advisorId(a1.getId())
                 .build());
+
         c1 = commentRepository.save(Comment.builder()
                 .text("Hello World")
-                .author(tempStudent.getAdvisor().getName())
-                .advisor(a1)
-                .student(tempStudent)
+                .sentByAdvisor(true)
                 .build());
-        c1.setCommentHistory(hist1);
+        c1.setHistoryComment(hist1);
         hist1.getCommentHistory().add(c1);
+
         c2 = commentRepository.save(Comment.builder()
                 .text("Hello Prof")
-                .author(tempStudent.getName())
-                .advisor(a1)
-                .student(tempStudent)
+                .sentByAdvisor(false)
                 .build());
-        c2.setCommentHistory(hist1);
+        c2.setHistoryComment(hist1);
         hist1.getCommentHistory().add(c2);
 
         tempStudent = studentRepository.save(Student.builder()

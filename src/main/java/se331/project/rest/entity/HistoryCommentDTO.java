@@ -14,7 +14,9 @@ import java.util.List;
 @AllArgsConstructor
 public class HistoryCommentDTO {
     Long id;
+
+    @Builder.Default
+    List<HistoryCommentTextDTO> commentHistory = new ArrayList<>();
     Long studentId;
     Long advisorId;
-    List<HistoryCommentTextDTO> commentHistory = new ArrayList<>();
 }

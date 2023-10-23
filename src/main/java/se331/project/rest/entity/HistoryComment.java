@@ -16,12 +16,11 @@ public class HistoryComment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Exclude
     Long id;
-    Long studentId;
-    Long advisorId;
 
-
-    @OneToMany(mappedBy = "commentHistory")
+    @OneToMany(mappedBy = "historyComment")
     @Builder.Default
     List<Comment> commentHistory = new ArrayList<>();
+    Long studentId;
+    Long advisorId;
 
 }

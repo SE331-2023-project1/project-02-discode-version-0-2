@@ -1,4 +1,4 @@
 package se331.project.rest.dao;
 
-public class AnnoucementDaoImpl {
+public class AnnouncementDaoImpl {
 }
