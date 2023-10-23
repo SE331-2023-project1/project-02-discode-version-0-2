@@ -26,7 +26,7 @@ public class HistoryCommentController {
         page = page == null ? 1 : page;
         Page<HistoryComment> pageOutput;
         if (id == null) {
-            pageOutput = historyCommentService.getHistoryComment(perPage,page);
+            pageOutput = historyCommentService.getHistoryComment(page-1,perPage);
         }else{
             pageOutput = historyCommentService.getHistoryComments(id, id, PageRequest.of(page-1,perPage));
         }
