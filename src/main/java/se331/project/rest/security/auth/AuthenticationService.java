@@ -40,14 +40,6 @@ public class AuthenticationService {
 
   public AuthenticationResponse registerStudent(RegisterRequest request) {
     Student student = Student.builder().name(request.getUsername()).id(studentRepository.count()+1).studentId(request.getStudentId()).build();
-    Advisor advisorDefault = advisorRepository.save(Advisor.builder()
-            .id(0L)
-            .name("-")
-            .surname("-")
-            .email("-@gmail.com")
-            .studentList(new ArrayList<>())
-            .images(List.of("https://th.bing.com/th/id/R.31292b03456379bf84c527e5c7722045?rik=A%2fq7m2EVhRogbg&pid=ImgRaw&r=0"))
-            .build());
 
     User user = User.builder()
             .studentId(request.getStudentId())
@@ -64,7 +56,6 @@ public class AuthenticationService {
     student.setUser(user);
     student.setName(user.getFirstname());
     student.setSurname(user.getLastname());
-    student.setAdvisor(advisorDefault);
     studentRepository.save(student);
     var jwtToken = jwtService.generateToken(user);
     var refreshToken = jwtService.generateRefreshToken(user);
