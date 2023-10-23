@@ -41,6 +41,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
     @Transactional
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
         Advisor a1 , a2, a3;
+
         a1 = advisorRepository.save(Advisor.builder()
                 .id(1L)
                 .name("Jan")
@@ -139,7 +140,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
 
         tempStudent = studentRepository.save(Student.builder()
                 .id(5L)
-                .studentId("642115005L")
+                .studentId("642115005")
                 .name("KITTIPAT")
                 .surname("TACHAMANOKUL")
                 .advisor(a2)

@@ -32,8 +32,8 @@ public class CommentServiceImpl implements CommentService{
     }
 
     @Override
-    public Page<Comment> getComments(String author, Pageable pageReq) {
-        return commentDao.getComments(author, pageReq);
+    public Page<Comment> getComments(String text, Pageable pageReq) {
+        return commentDao.getComments(text, pageReq);
     }
 
     @Override

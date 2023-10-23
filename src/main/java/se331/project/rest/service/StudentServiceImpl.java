@@ -53,18 +53,8 @@ public class StudentServiceImpl implements StudentService{
 
 
     @Override
-    public Page<Student> getStudents(String name, String surname, Pageable pageReq) {
-        return studentDao.getStudents(name, surname, pageReq);
+    public Page<Student> getStudents(String name, String surname, String studentId, Pageable pageReq) {
+        return studentDao.getStudents(name, surname, studentId, pageReq);
     }
 
-    @Override
-    public Page<Student> getStudentByStudentId(Long id, Pageable pageReq) {
-        return studentDao.getStudentByStudentId(id, pageReq);
-    }
-
-
-//    @Override
-//    public Page<Student> getStudents(String name, Long id, String advisorName, Pageable pageReq) {
-//        return null;
-//    }
 }

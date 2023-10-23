@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 public class CommentHistoryDTO {
     Long id;
     String Text;
+    String author;
     Long studentId;
     Long advisorId;
 }

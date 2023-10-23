@@ -12,8 +12,7 @@ public interface StudentDao {
     Page<Student> getStudent(Pageable pageRequest);
     Optional<Student> getStudentById(Long id);
     Student save(Student Student);
-    Page<Student> getStudents (String name, String surname, Pageable pageRequest);
-    Page<Student> getStudentByStudentId (Long id, Pageable pageReq);
+    Page<Student> getStudents (String name, String surname, String studentId, Pageable pageRequest);
     Optional<Student> findById(Long id);
 
 }

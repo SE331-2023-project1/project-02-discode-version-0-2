@@ -30,7 +30,7 @@ public class CommentDaoImpl implements  CommentDao{
     }
 
     @Override
-    public Page<Comment> getComments(String author, Pageable pageReq) {
-        return commentRepository.findByAuthorContainingIgnoreCase(author, pageReq);
+    public Page<Comment> getComments(String text, Pageable pageReq) {
+        return commentRepository.findByTextContainingIgnoreCase(text, pageReq);
     }
 }

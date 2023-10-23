@@ -12,7 +12,6 @@ public interface StudentService {
     Student getStudentById (Long id);
 
     Student save(Student student);
-    Page<Student> getStudents (String name, String surname, Pageable pageReq);
-    Page<Student> getStudentByStudentId(Long id, Pageable pageReq);
+    Page<Student> getStudents (String name, String surname, String studentId,Pageable pageReq);
 //    Student overWrite(Student student);
 }

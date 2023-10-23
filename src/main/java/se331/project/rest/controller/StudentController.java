@@ -32,14 +32,11 @@ public class StudentController {
         page = page == null ? 1 : page;
 
         Page<Student> pageOutput;
-        if(id != null ) {
-            pageOutput = studentService.getStudentByStudentId(id, PageRequest.of(page-1, perPage));
-        }
-        else if(title == null){
+        if(title == null){
             pageOutput = studentService.getStudent(page-1, perPage);
         }
         else {
-            pageOutput = studentService.getStudents(title, title, PageRequest.of(page-1,perPage));
+            pageOutput = studentService.getStudents(title, title, title, PageRequest.of(page-1,perPage));
         }
 
         HttpHeaders responseHeader = new HttpHeaders();

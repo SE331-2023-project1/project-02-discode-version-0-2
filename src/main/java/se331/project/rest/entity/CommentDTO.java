@@ -15,6 +15,7 @@ import java.util.List;
 public class CommentDTO {
     Long id;
     String text;
+    String author;
     Long studentId;
     Long advisorId;
 //    List<CommentHistoryDTO> commentsHistory = new ArrayList<>();

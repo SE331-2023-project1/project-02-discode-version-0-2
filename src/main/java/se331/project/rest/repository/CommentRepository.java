@@ -9,5 +9,5 @@ import java.util.List;
 
 public interface CommentRepository extends JpaRepository<Comment, Long> {
     List<Comment> findAll() ;
-    Page<Comment> findByAuthorContainingIgnoreCase (String author, Pageable pageReq);
+    Page<Comment> findByTextContainingIgnoreCase (String text, Pageable pageReq);
 }

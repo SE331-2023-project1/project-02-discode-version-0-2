@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import se331.project.rest.entity.Comment;
+import se331.project.rest.entity.Student;
 import se331.project.rest.service.CommentService;
 import se331.project.rest.util.DiscodeMapper;
 
@@ -61,6 +62,20 @@ public class CommentController {
     public ResponseEntity<?> addComment (@RequestBody Comment comment) {
         Comment output = commentService.save(comment);
         return ResponseEntity.ok(DiscodeMapper.INSTANCE.getCommentDTO(output));
+    }
+
+    @PutMapping("/comments/{id}")
+    public ResponseEntity<?> updateComment(@PathVariable("id") Long id, @RequestBody Comment updateComment) {
+        Comment existingcComment = commentService.getCommentById(id);
+        if (existingcComment != null) {
+            if (updateComment.getText() != null) {
+                existingcComment.setText(updateComment.getText());
+            }
+            Comment output = commentService.save(existingcComment);
+            return ResponseEntity.ok(DiscodeMapper.INSTANCE.getCommentDTO(output));
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "The given id is not found");
+        }
     }
 }
 
