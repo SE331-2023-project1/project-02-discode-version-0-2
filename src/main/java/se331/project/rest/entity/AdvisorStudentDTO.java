@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class AdvisorStudentDTO {
     Long id;
-    Long studentId;
+    String studentId;
     String name;
     String surname;
     String[] courseList;

@@ -47,6 +47,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .surname("Toe")
                 .email("Jan_Toe@gmail.com")
                 .studentList(new ArrayList<>())
+                .images(List.of("https://i1.rgstatic.net/ii/profile.image/280166027808778-1443808194990_Q512/Chartchai-Doungsa-Ard.jpg"))
                 .build());
 
         a2 = advisorRepository.save(Advisor.builder()
@@ -55,6 +56,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .surname("Apic")
                 .email("Eve_Apic@gmail.com")
                 .studentList(new ArrayList<>())
+                .images(List.of("https://service.camt.cmu.ac.th/person_imgs/apichaka2.jpg"))
                 .build());
 
         a3 = advisorRepository.save(Advisor.builder()
@@ -63,6 +65,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .surname("Parin")
                 .email("Ball_Parin@gmail.com")
                 .studentList(new ArrayList<>())
+                .images(List.of("https://service.camt.cmu.ac.th/person_imgs/parinya.jpg"))
                 .build());
 
         HistoryComment hist1, hist2 ,his3 ;
