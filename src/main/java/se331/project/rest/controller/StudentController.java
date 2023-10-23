@@ -85,15 +85,15 @@ public class StudentController {
         if (existingStudent != null) {
             if (updateStudent.getName() != null) {
                 existingStudent.setName(updateStudent.getName());
-                updateStudent.getUser().setFirstname(updateStudent.getName());
+//                updateStudent.getUser().setFirstname(updateStudent.getName());
             }
             if (updateStudent.getStudentId() != null) {
                 existingStudent.setStudentId(updateStudent.getStudentId());
-                updateStudent.getUser().setLastname(updateStudent.getSurname());
+//                updateStudent.getUser().setLastname(updateStudent.getSurname());
             }
             if (updateStudent.getSurname() != null) {
                 existingStudent.setSurname(updateStudent.getSurname());
-                updateStudent.getUser().setStudentId(updateStudent.getStudentId());
+//                updateStudent.getUser().setStudentId(updateStudent.getStudentId());
             }
             if (updateStudent.getImages() != null) {
                 existingStudent.setImages(updateStudent.getImages());
