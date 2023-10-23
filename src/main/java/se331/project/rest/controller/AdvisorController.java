@@ -67,11 +67,18 @@ public class AdvisorController {
     public ResponseEntity<?> updateAdvisor(@PathVariable("id") Long id, @RequestBody Advisor updateAdvisor) {
         Advisor existingAdvisor = advisorService.getAdvisorById(id);
         if (existingAdvisor != null) {
+            if (updateAdvisor.getName() != null) {
                 existingAdvisor.setName(updateAdvisor.getName());
+            }
+            if (updateAdvisor.getSurname() != null) {
                 existingAdvisor.setSurname(updateAdvisor.getSurname());
-                existingAdvisor.setEmail(updateAdvisor.getEmail());
+            }
+            if (updateAdvisor.getImages() != null) {
                 existingAdvisor.setImages(updateAdvisor.getImages());
-
+            }
+            if (updateAdvisor.getEmail() != null) {
+                existingAdvisor.setEmail(updateAdvisor.getEmail());
+            }
             Advisor output = advisorService.save(existingAdvisor);
             return ResponseEntity.ok(DiscodeMapper.INSTANCE.getAdvisorDTO(output));
         } else {
