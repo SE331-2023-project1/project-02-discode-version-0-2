@@ -29,7 +29,7 @@ public class CommentController {
         page = page == null ? 1 : page;
         Page<Comment> pageOutput;
         if (title == null) {
-            pageOutput = commentService.getComment(perPage,page);
+            pageOutput = commentService.getComment(page-1,perPage);
         }else{
             pageOutput = commentService.getComments(title,PageRequest.of(page-1,perPage));
         }
