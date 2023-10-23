@@ -83,6 +83,9 @@ public class StudentController {
             if (updateStudent.getName() != null) {
                 existingStudent.setName(updateStudent.getName());
             }
+            if (updateStudent.getStudentId() != null) {
+                existingStudent.setStudentId(updateStudent.getStudentId());
+            }
             if (updateStudent.getSurname() != null) {
                 existingStudent.setSurname(updateStudent.getSurname());
             }
