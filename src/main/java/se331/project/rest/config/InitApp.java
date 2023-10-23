@@ -276,6 +276,11 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         a1.setUser(user1);
         user1.setAdvisor(a1);
 
+        a2.setUser(user2);
+        user2.setAdvisor(a2);
+        user2.setFirstname(a2.getName());
+        user2.setLastname(a2.getSurname());
+
         s17.setUser(user3);
         user3.setStudent(s17);
         user3.setStudentId("642115017");
@@ -298,8 +303,8 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .build();
 
         user2 = User.builder()
-                .username("advisor")
-                .password(encoder.encode("advisor"))
+                .username("teacher")
+                .password(encoder.encode("teacher"))
                 .firstname("advisorUser")
                 .lastname("advisorUser")
                 .email("advisor@user.com")
