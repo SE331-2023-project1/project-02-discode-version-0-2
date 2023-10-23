@@ -17,6 +17,7 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Exclude
     Long id;
+
     Long studentId;
     String name;
     String surname;

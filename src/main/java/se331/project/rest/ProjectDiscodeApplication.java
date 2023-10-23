@@ -21,6 +21,8 @@ public class ProjectDiscodeApplication {
                 registry.addMapping("/**")
                         .allowedOrigins("http://localhost:3000")
                         .exposedHeaders("x-total-count")
+                        .allowedMethods("*")
+                        .allowedHeaders("*")
                         .allowedOrigins("*");
 
             }
