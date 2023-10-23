@@ -31,7 +31,7 @@ public class User implements UserDetails {
   @Id
   @GeneratedValue
   private Integer id;
-  private Long studentId;
+  private String studentId;
   private String parentId;
   private String firstname;
   private String lastname;

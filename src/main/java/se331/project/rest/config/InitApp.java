@@ -72,7 +72,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         Student tempStudent;
         tempStudent = studentRepository.save(Student.builder()
                 .id(1L)
-                .studentId(642115001L)
+                .studentId("642115001")
                 .name("KORNKANOK")
                 .surname("KANCHANA")
                 .advisor(a1)
@@ -83,7 +83,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
 
         tempStudent = studentRepository.save(Student.builder()
                 .id(2L)
-                .studentId(642115002L)
+                .studentId("642115002")
                 .name("KRITTAYOCH")
                 .surname("JONGCHAISITTIKUL")
                 .advisor(a1)
@@ -114,7 +114,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
 
         tempStudent = studentRepository.save(Student.builder()
                 .id(3L)
-                .studentId(642115003L)
+                .studentId("642115003")
                 .name("KAN")
                 .surname("KATPARK")
                 .advisor(a1)
@@ -125,7 +125,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
 
         tempStudent = studentRepository.save(Student.builder()
                 .id(4L)
-                .studentId(642115004L)
+                .studentId("642115004")
                 .name("KITDANAI")
                 .surname("PALEE")
                 .advisor(a1)
@@ -136,7 +136,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
 
         tempStudent = studentRepository.save(Student.builder()
                 .id(5L)
-                .studentId(642115005L)
+                .studentId("642115005L")
                 .name("KITTIPAT")
                 .surname("TACHAMANOKUL")
                 .advisor(a2)
@@ -146,7 +146,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         a2.getStudentList().add(tempStudent);
         tempStudent = studentRepository.save(Student.builder()
                 .id(6L)
-                .studentId(642115006L)
+                .studentId("642115006")
                 .name("JAKKAPHAT")
                 .surname("PLOYLAKE")
                 .advisor(a2)
@@ -157,7 +157,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
 
         tempStudent = studentRepository.save(Student.builder()
                 .id(7L)
-                .studentId(642115008L)
+                .studentId("642115008")
                 .name("JIRAPAT")
                 .surname("NAMWONG")
                 .advisor(a2)
@@ -168,7 +168,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
 
         tempStudent = studentRepository.save(Student.builder()
                 .id(8L)
-                .studentId(642115009L)
+                .studentId("642115009")
                 .name("JULALUCK")
                 .surname("KYETAATPARK")
                 .advisor(a2)
@@ -179,7 +179,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
 
         tempStudent = studentRepository.save(Student.builder()
                 .id(9L)
-                .studentId(642115011L)
+                .studentId("642115011")
                 .name("YANWARUT")
                 .surname("SUKSAWAT")
                 .advisor(a3)
@@ -191,7 +191,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
 
         tempStudent = studentRepository.save(Student.builder()
                 .id(10L)
-                .studentId(642115015L)
+                .studentId("642115015")
                 .name("YADA")
                 .surname("LAKHONJUN")
                 .advisor(a3)
@@ -202,7 +202,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
 
         tempStudent = studentRepository.save(Student.builder()
                 .id(11L)
-                .studentId(642115016L)
+                .studentId("642115016")
                 .name("DANAIKRIT")
                 .surname("JAIWONG")
                 .advisor(a3)
@@ -213,7 +213,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
 
         Student s17 = studentRepository.save(Student.builder()
                 .id(12L)
-                .studentId(642115017L)
+                .studentId("642115017")
                 .name("DUSIT")
                 .surname("CHUNVISET")
                 .advisor(a3)
@@ -225,7 +225,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
 
         tempStudent = studentRepository.save(Student.builder()
                 .id(13L)
-                .studentId(642115019L)
+                .studentId("642115019")
                 .name("TANINWAT")
                 .surname("PHUTTICHAIWARANGKUL")
                 .advisor(a1)
@@ -236,7 +236,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
 
         tempStudent = studentRepository.save(Student.builder()
                 .id(14L)
-                .studentId(642115020L)
+                .studentId("642115020")
                 .name("THIWAKON")
                 .surname("SAKUNCHAO")
                 .advisor(a2)
@@ -247,7 +247,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
 
         tempStudent = studentRepository.save(Student.builder()
                 .id(15L)
-                .studentId(642115021L)
+                .studentId("642115021")
                 .name("TANAKORN")
                 .surname("WALEECHAROENPONG")
                 .advisor(a3)
@@ -258,7 +258,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
 
         tempStudent = studentRepository.save(Student.builder()
                 .id(16L)
-                .studentId(642115022L)
+                .studentId("642115022")
                 .name("TANAPONG")
                 .surname("YAMKAMOL")
                 .advisor(a1)
@@ -275,7 +275,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
 
         s17.setUser(user3);
         user3.setStudent(s17);
-        user3.setStudentId(642115017L);
+        user3.setStudentId("642115017");
         user3.setFirstname(s17.getName());
         user3.setLastname(s17.getSurname());
 

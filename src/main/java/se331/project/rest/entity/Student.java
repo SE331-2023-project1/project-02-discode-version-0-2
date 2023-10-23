@@ -18,7 +18,7 @@ public class Student {
     @EqualsAndHashCode.Exclude
     Long id;
 
-    Long studentId;
+    String studentId;
     String name;
     String surname;
 
