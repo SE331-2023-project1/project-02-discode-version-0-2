@@ -48,27 +48,27 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
 
         a1 = advisorRepository.save(Advisor.builder()
                 .id(1L)
-                .name("Jan")
-                .surname("Toe")
-                .email("Jan_Toe@gmail.com")
+                .name("CHARTCHAI")
+                .surname("DOUNGSA-ARD")
+                .email("chartchai.d@cmu.ac.th")
                 .studentList(new ArrayList<>())
                 .images(List.of("https://i1.rgstatic.net/ii/profile.image/280166027808778-1443808194990_Q512/Chartchai-Doungsa-Ard.jpg"))
                 .build());
 
         a2 = advisorRepository.save(Advisor.builder()
                 .id(2L)
-                .name("Eve")
-                .surname("Apic")
-                .email("Eve_Apic@gmail.com")
+                .name("APITCHAKA")
+                .surname("SINGJAI")
+                .email("apitchaka.s@cmu.ac.th")
                 .studentList(new ArrayList<>())
                 .images(List.of("https://service.camt.cmu.ac.th/person_imgs/apichaka2.jpg"))
                 .build());
 
         a3 = advisorRepository.save(Advisor.builder()
                 .id(3L)
-                .name("Ball")
-                .surname("Parin")
-                .email("Ball_Parin@gmail.com")
+                .name("PARINYA")
+                .surname("SUWANSRIKHAM")
+                .email("parinya.s@cmu.ac.th")
                 .studentList(new ArrayList<>())
                 .images(List.of("https://service.camt.cmu.ac.th/person_imgs/parinya.jpg"))
                 .build());
