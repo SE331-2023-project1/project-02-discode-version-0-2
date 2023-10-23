@@ -17,7 +17,7 @@ public class HistoryComment {
     @EqualsAndHashCode.Exclude
     Long id;
 
-    @OneToMany(mappedBy = "historyComment")
+    @OneToMany(mappedBy = "history")
     @Builder.Default
     List<Comment> commentHistory = new ArrayList<>();
     Long studentId;

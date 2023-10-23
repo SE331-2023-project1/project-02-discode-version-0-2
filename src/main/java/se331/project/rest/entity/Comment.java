@@ -15,7 +15,7 @@ public class Comment {
     Long id;
 
     @ManyToOne
-    HistoryComment historyComment;
+    HistoryComment history;
     String text;
     Boolean sentByAdvisor;
 

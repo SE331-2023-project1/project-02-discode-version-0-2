@@ -16,7 +16,7 @@ public class CommentDTO {
     Long id;
     String text;
     Boolean sentByAdvisor;
-    CommentHistoryDTO historyComment;
+    CommentHistoryDTO history;
 
 //    List<CommentHistoryDTO> commentsHistory = new ArrayList<>();
 }

@@ -8,7 +8,7 @@ import se331.project.rest.entity.HistoryComment;
 import java.util.List;
 import java.util.Optional;
 
-public interface CommentHistoryRepository extends JpaRepository<HistoryComment, Long> {
+public interface HistoryCommentRepository extends JpaRepository<HistoryComment, Long> {
     List<HistoryComment> findAll();
 
     Page<HistoryComment> findByStudentIdContainingOrAdvisorId(Long studentId, Long advisorId, Pageable pageReq);

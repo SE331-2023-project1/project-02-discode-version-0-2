@@ -13,8 +13,8 @@ import se331.project.rest.entity.Comment;
 import se331.project.rest.entity.HistoryComment;
 import se331.project.rest.entity.Student;
 import se331.project.rest.repository.AdvisorRepository;
-import se331.project.rest.repository.CommentHistoryRepository;
 import se331.project.rest.repository.CommentRepository;
+import se331.project.rest.repository.HistoryCommentRepository;
 import se331.project.rest.repository.StudentRepository;
 import se331.project.rest.security.user.Role;
 import se331.project.rest.security.user.User;
@@ -34,7 +34,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
     final StudentRepository studentRepository;
     final AdvisorRepository advisorRepository;
     final UserRepository userRepository;
-    final CommentHistoryRepository commentHistoryRepository;
+    final HistoryCommentRepository historyCommentRepository;
     final CommentRepository commentRepository;
 
     @Override
@@ -96,7 +96,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         tempStudent.setAdvisor(a1);
         a1.getStudentList().add(tempStudent);
 
-        hist1 = commentHistoryRepository.save(HistoryComment.builder()
+        hist1 = historyCommentRepository.save(HistoryComment.builder()
                 .studentId(tempStudent.getId())
                 .advisorId(a1.getId())
                 .build());
@@ -105,14 +105,14 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .text("Hello World")
                 .sentByAdvisor(true)
                 .build());
-        c1.setHistoryComment(hist1);
+        c1.setHistory(hist1);
         hist1.getCommentHistory().add(c1);
 
         c2 = commentRepository.save(Comment.builder()
                 .text("Hello Prof")
                 .sentByAdvisor(false)
                 .build());
-        c2.setHistoryComment(hist1);
+        c2.setHistory(hist1);
         hist1.getCommentHistory().add(c2);
 
         tempStudent = studentRepository.save(Student.builder()
