@@ -1,7 +1,7 @@
 [642115004 Kitdanai Palee ](https://github.com/KPX1164) <br/>
 [642115017 Dusit Chunviset ](https://github.com/DeitYzS) <br/>
 
-Repository: [FRONTEND](https://github.com/DeitYzS/project-02-discode-version-0-2-frontend) 
+Repository: [FRONTEND](https://github.com/DeitYzS/project-02-discode-version-0-2-frontend) <br/>
 Repository: [BACKEND](https://github.com/SE331-2023-project1/project-02-discode-version-0-2) <br/>
 
 
