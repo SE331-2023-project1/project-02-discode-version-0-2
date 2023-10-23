@@ -10,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import se331.project.rest.entity.Announcement;
-import se331.project.rest.service.AdvisorService;
 import se331.project.rest.service.AnnouncementService;
 import se331.project.rest.util.DiscodeMapper;
 

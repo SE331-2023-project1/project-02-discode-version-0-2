@@ -37,6 +37,15 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
         Advisor a1 , a2, a3;
 
+        Advisor advisorDefault = advisorRepository.save(Advisor.builder()
+                .id(0L)
+                .name("-")
+                .surname("-")
+                .email("-@gmail.com")
+                .studentList(new ArrayList<>())
+                .images(List.of("https://th.bing.com/th/id/R.31292b03456379bf84c527e5c7722045?rik=A%2fq7m2EVhRogbg&pid=ImgRaw&r=0"))
+                .build());
+
         a1 = advisorRepository.save(Advisor.builder()
                 .id(1L)
                 .name("Jan")
@@ -73,7 +82,6 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .advisor(a1)
                 .build());
 
-
         Student tempStudent;
         tempStudent = studentRepository.save(Student.builder()
                 .id(1L)
@@ -82,17 +90,6 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .surname("KANCHANA")
                 .advisor(a1)
                 .images(List.of("https://media.discordapp.net/attachments/1087569641553010780/1165229392155381760/IMG_2925.png?ex=65461770&is=6533a270&hm=401335325e288c0fef7fb8c8b48779de952870e72fe9421bb455598bb97c0bb8&=&width=609&height=636"))
-                .build());
-        tempStudent.setAdvisor(a1);
-        a1.getStudentList().add(tempStudent);
-
-        tempStudent = studentRepository.save(Student.builder()
-                .id(2L)
-                .studentId("642115002")
-                .name("KRITTAYOCH")
-                .surname("JONGCHAISITTIKUL")
-                .advisor(a1)
-                .images(List.of("https://th.bing.com/th/id/R.31292b03456379bf84c527e5c7722045?rik=A%2fq7m2EVhRogbg&pid=ImgRaw&r=0"))
                 .build());
         tempStudent.setAdvisor(a1);
         a1.getStudentList().add(tempStudent);
@@ -115,6 +112,25 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .build());
         c2.setHistory(hist1);
         hist1.getCommentHistory().add(c2);
+
+        c3 = commentRepository.save(Comment.builder()
+                .text("Don't do that")
+                .sentByAdvisor(true)
+                .build());
+        c3.setHistory(hist1);
+        hist1.getCommentHistory().add(c3);
+
+
+        tempStudent = studentRepository.save(Student.builder()
+                .id(2L)
+                .studentId("642115002")
+                .name("KRITTAYOCH")
+                .surname("JONGCHAISITTIKUL")
+                .advisor(a1)
+                .images(List.of("https://th.bing.com/th/id/R.31292b03456379bf84c527e5c7722045?rik=A%2fq7m2EVhRogbg&pid=ImgRaw&r=0"))
+                .build());
+        tempStudent.setAdvisor(a1);
+        a1.getStudentList().add(tempStudent);
 
         tempStudent = studentRepository.save(Student.builder()
                 .id(3L)
@@ -148,6 +164,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .build());
         tempStudent.setAdvisor(a2);
         a2.getStudentList().add(tempStudent);
+
         tempStudent = studentRepository.save(Student.builder()
                 .id(6L)
                 .studentId("642115006")

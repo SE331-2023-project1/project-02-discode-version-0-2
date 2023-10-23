@@ -14,7 +14,6 @@ import java.util.List;
 public class AnnouncementDTO {
     Long id;
     String title;
-    String message;
+    String description;
     StudentAdvisorDTO advisor;
-    List<String> files;
 }
