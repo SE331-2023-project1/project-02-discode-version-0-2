@@ -2,7 +2,7 @@ package se331.project.rest.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-
+import java.util.List;
 @Data
 @Builder
 @Entity
@@ -20,5 +20,8 @@ public class Announcement {
 
     String title;
     String description;
+
+    @ElementCollection
+    List<String> files;
 
 }

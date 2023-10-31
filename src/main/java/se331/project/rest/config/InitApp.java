@@ -48,27 +48,27 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
 
         a1 = advisorRepository.save(Advisor.builder()
                 .id(1L)
-                .name("CHARTCHAI")
-                .surname("DOUNGSA-ARD")
-                .email("chartchai.d@cmu.ac.th")
+                .name("Jan")
+                .surname("Toe")
+                .email("Jan_Toe@gmail.com")
                 .studentList(new ArrayList<>())
                 .images(List.of("https://i1.rgstatic.net/ii/profile.image/280166027808778-1443808194990_Q512/Chartchai-Doungsa-Ard.jpg"))
                 .build());
 
         a2 = advisorRepository.save(Advisor.builder()
                 .id(2L)
-                .name("APITCHAKA")
-                .surname("SINGJAI")
-                .email("apitchaka.s@cmu.ac.th")
+                .name("Eve")
+                .surname("Apic")
+                .email("Eve_Apic@gmail.com")
                 .studentList(new ArrayList<>())
                 .images(List.of("https://service.camt.cmu.ac.th/person_imgs/apichaka2.jpg"))
                 .build());
 
         a3 = advisorRepository.save(Advisor.builder()
                 .id(3L)
-                .name("PARINYA")
-                .surname("SUWANSRIKHAM")
-                .email("parinya.s@cmu.ac.th")
+                .name("Ball")
+                .surname("Parin")
+                .email("Ball_Parin@gmail.com")
                 .studentList(new ArrayList<>())
                 .images(List.of("https://service.camt.cmu.ac.th/person_imgs/parinya.jpg"))
                 .build());
@@ -238,7 +238,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .name("DUSIT")
                 .surname("CHUNVISET")
                 .advisor(a3)
-                .images(List.of("https://th.bing.com/th/id/R.31292b03456379bf84c527e5c7722045?rik=A%2fq7m2EVhRogbg&pid=ImgRaw&r=0"))
+                .images(List.of("https://olympic.ca/wp-content/uploads/2017/12/RACHEL-HOMAN-e1642031388492.jpg?quality=100&resize=350,522"))
                 .build());
         s17.setAdvisor(a3);
         a3.getStudentList().add(s17);
@@ -310,6 +310,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         user4.setFirstname(a3.getName());
         user4.setLastname(a3.getSurname());
 
+
     }
 
     User user1, user2, user3, user4;
@@ -344,13 +345,12 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .enabled(true)
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 01, 01).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
-
         user4 = User.builder()
-                .username("user2")
-                .password(encoder.encode("user2"))
-                .firstname("studentUSer")
-                .lastname("studentUSer")
-                .email("student@cmu.ca.th")
+                .username("t3")
+                .password(encoder.encode("t3"))
+                .firstname("Ball")
+                .lastname("Parin")
+                .email("Parin@cmu.ca.th")
                 .enabled(true)
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 01, 01).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
@@ -360,10 +360,10 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         user2.getRoles().add(Role.ROLE_ADVISOR);
         user3.getRoles().add(Role.ROLE_STUDENT);
         user4.getRoles().add(Role.ROLE_ADVISOR);
+        userRepository.save(user4);
         userRepository.save(user1);
         userRepository.save(user2);
         userRepository.save(user3);
-        userRepository.save(user4);
     }
 
 
