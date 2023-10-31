@@ -16,4 +16,5 @@ public class AnnouncementDTO {
     String title;
     String description;
     StudentAdvisorDTO advisor;
+    List<String> files;
 }

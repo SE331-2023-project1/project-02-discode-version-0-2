@@ -78,7 +78,7 @@ public class CloundStorageHelper {
 
         if(fileName != null && !fileName.isEmpty() && fileName.contains(".")) {
             final String extension = fileName.substring(fileName.lastIndexOf('.')+1);
-            String[] allowedExt = {"jpg", "jpeg", "png", "gif"};
+            String[] allowedExt = {"jpg", "jpeg", "png", "gif", "pdf", "mp4","mp3","docx","pptx","xlsx","csv","m4a"};
             for(String s : allowedExt) {
                 if(extension.equals(s)) {
                     String urlName = this.uploadFile(file, bucket);

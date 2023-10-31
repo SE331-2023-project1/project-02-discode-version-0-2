@@ -17,12 +17,12 @@ public class BucketController {
     final CloundStorageHelper cloundStorageHelper;
     @PostMapping("/uploadFile")
     public ResponseEntity<?> uploadFile(@RequestPart (value = "file") MultipartFile file) throws IOException, ServletException {
-        return ResponseEntity.ok(this.cloundStorageHelper.getImageUrl(file, "imageupload-2e148.appspot.com"));
+        return ResponseEntity.ok(this.cloundStorageHelper.getStorageFileDto(file, "imageupload-2e148.appspot.com"));
     }
 
     @PostMapping("/uploadImage")
     public ResponseEntity<?> uploadFileComponent(@RequestPart (value = "image") MultipartFile file) throws IOException, ServletException {
-        return ResponseEntity.ok(this.cloundStorageHelper.getStorageFileDto(file, "imageupload-2e148.appspot.com"));
+        return ResponseEntity.ok(this.cloundStorageHelper.getImageUrl(file, "imageupload-2e148.appspot.com"));
     }
 }
 

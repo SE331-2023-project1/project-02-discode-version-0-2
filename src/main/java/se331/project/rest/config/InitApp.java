@@ -238,7 +238,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .name("DUSIT")
                 .surname("CHUNVISET")
                 .advisor(a3)
-                .images(List.of("https://th.bing.com/th/id/R.31292b03456379bf84c527e5c7722045?rik=A%2fq7m2EVhRogbg&pid=ImgRaw&r=0"))
+                .images(List.of("https://olympic.ca/wp-content/uploads/2017/12/RACHEL-HOMAN-e1642031388492.jpg?quality=100&resize=350,522"))
                 .build());
         s17.setAdvisor(a3);
         a3.getStudentList().add(s17);
@@ -305,9 +305,15 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         user3.setFirstname(s17.getName());
         user3.setLastname(s17.getSurname());
 
+        a3.setUser(user4);
+        user4.setAdvisor(a3);
+        user4.setFirstname(a3.getName());
+        user4.setLastname(a3.getSurname());
+
+
     }
 
-    User user1, user2, user3;
+    User user1, user2, user3, user4;
     private void addUser() {
         PasswordEncoder encoder = new BCryptPasswordEncoder();
         user1 = User.builder()
@@ -339,11 +345,22 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .enabled(true)
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021, 01, 01).atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
+        user4 = User.builder()
+                .username("t3")
+                .password(encoder.encode("t3"))
+                .firstname("Ball")
+                .lastname("Parin")
+                .email("Parin@cmu.ca.th")
+                .enabled(true)
+                .lastPasswordResetDate(Date.from(LocalDate.of(2021, 01, 01).atStartOfDay(ZoneId.systemDefault()).toInstant()))
+                .build();
 
 
         user1.getRoles().add(Role.ROLE_ADMIN);
         user2.getRoles().add(Role.ROLE_ADVISOR);
         user3.getRoles().add(Role.ROLE_STUDENT);
+        user4.getRoles().add(Role.ROLE_ADVISOR);
+        userRepository.save(user4);
         userRepository.save(user1);
         userRepository.save(user2);
         userRepository.save(user3);
